@@ -1,0 +1,81 @@
+body {
+    background-color: black; 
+}
+/* ------------- */
+/* Header Styles */
+/* ------------- */
+.header {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
+
+
+/* -------------------------- */
+/* CSS for the logo animation */
+/* -------------------------- */
+svg.logo{
+    margin-top: 2.5em;
+    padding-left: 50px;
+    width: 30em;
+    height: 30em;
+  }
+
+svg.logo polygon {
+    stroke: white;
+    fill: none;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: dash 4s linear forwards;
+    stroke-width: 3;
+}
+
+svg.logo line {
+    stroke: white;
+    fill: none;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: dash 24s linear forwards;
+    stroke-width: 3;
+}
+
+/* --------------------- */
+/* Controls for RGB Glow */
+/* --------------------- */
+@keyframes dash {
+    to {
+      stroke-dashoffset: 0;
+    }
+}
+
+feFlood {
+    flood-color: FF0000;
+    -webkit-animation-name: rgb; /* Chrome, Safari, Opera */
+    -webkit-animation-duration: 8s;
+    animation-name: rgb;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+    /* animation: rgb 5s infinite linear; */
+}
+
+@keyframes rgb {
+    12.5% { flood-color: #FF0000;}
+    25% { flood-color: #FFA500; }
+    37.5% { flood-color: #FFFF00; }
+    50% { flood-color: #7FFF00; }
+    62.5% { flood-color: #00FFFF; }
+    75% { flood-color: #0000FF; }
+    87.5% { flood-color: #9932CC; }
+    100% { flood-color: #FF1493; }
+}
+
+@-webkit-keyframes rgb {
+    12.5% { flood-color: #FF0000;}
+    25% { flood-color: #FFA500; }
+    37.5% { flood-color: #FFFF00; }
+    50% { flood-color: #7FFF00; }
+    62.5% { flood-color: #00FFFF; }
+    75% { flood-color: #0000FF; }
+    87.5% { flood-color: #9932CC; }
+    100% { flood-color: #FF1493; }
+}

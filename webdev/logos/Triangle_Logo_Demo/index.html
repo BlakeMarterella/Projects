@@ -1,0 +1,42 @@
+<html>
+<head>
+    <title>Triangle VT</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="main">
+        <div class="header">
+            <svg xmlns="http://www.w3.org/2000/svg" class="logo">
+                <defs>
+
+                    <filter id="sofGlow" height="200%" width="200%" x="-75%" y="-75%">
+                        <!-- Thicken out the original shape -->
+                        <feMorphology operator="dilate" radius="10" in="SourceAlpha" result="thicken" />
+                
+                        <!-- Use a gaussian blur to create the soft blurriness of the glow -->
+                        <feGaussianBlur in="thicken" stdDeviation="10" result="blurred" />
+                
+                        <!-- Change the colour -->
+                        <feFlood flood-color="rgb(0,186,255)" result="glowColor" />
+                
+                        <!-- Color in the glows -->
+                        <feComposite in="glowColor" in2="blurred" operator="in" result="softGlow_colored" />
+                
+                        <!--	Layer the effects together -->
+                        <feMerge>
+                            <feMergeNode in="softGlow_colored"/>
+                            <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                    </filter>
+                </defs>
+                <polygon filter="url(#sofGlow)" stroke="#000000" points="50,250 250,250 150,50"/>
+                <!-- The vertical line of the T -->
+                <line x1="150" y1="155" x2="150" y2="250"/>
+                <!-- the arms of the T -->
+                <line x1="150" y1="156" x2="97" y2="156"/>
+                <line x1="150" y1="156" x2="202" y2="156"/>
+            </svg>
+        </div>
+    </div>
+</body>
+</html>
